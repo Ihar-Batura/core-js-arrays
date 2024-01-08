@@ -462,7 +462,7 @@ function getHexRGBValues(arr) {
 function getMaxItems(arr, n) {
   if (arr.length === 0) return [];
   return arr
-    .sort(function (a, b) {
+    .sort((a, b) => {
       return b - a;
     })
     .slice(0, n);
@@ -480,8 +480,13 @@ function getMaxItems(arr, n) {
  *    findCommonElements(['a', 'b', 'c'], ['b', 'c', 'd']) => [ 'b', 'c' ]
  *    findCommonElements([1, 2, 3], ['a', 'b', 'c']) => []
  */
-function findCommonElements(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function findCommonElements(arr1, arr2) {
+  return arr1.reduce((res, currValue) => {
+    if (arr2.includes(currValue)) {
+      res.push(currValue);
+    }
+    return res;
+  }, []);
 }
 
 /**
